@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" class="0">
+<head>
+	<meta charset="UTF-8">
+	<title>模版引擎测试</title>
+
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.js"></script>
+	<script type="text/javascript" src="template.js"></script>
+
+	<style type="text/css">
+		.title{line-height: 40px;text-align: center;}
+		.wrap{height: 500px;width: 500px;background: #efefef;border: #ccc 2px solid;margin: 0 auto;overflow: auto;}
+		.wrap ul{list-style: none;padding: 0;margin: 0;}
+		.wrap li{padding: 0 10px; margin-bottom: 5px;display: block;line-height: 25px;}
+		.wrap li a{color: #505050;}
+	</style>
+
+</head>
+<body>
+
+	<div class="title">
+		<a href="http://www.cnkk.me/art/3" title="前端开发">构建简单的javascript模版引擎 -- By Mr.K</a>
+	</div>
+
+	<div class="wrap">
+		<ul>内容显示区域</ul>
+		<script id="tp_testList" type="text/template">
+		    <li><a href="http://www.cnkk.me/" title="${ data.name }" target="_blank">${ data.name } (${ data.url })</a></li>
+		</script>
+	</div>
+
+	<script type="text/javascript">
+
+	var dataJSON = [
+		{name: 'jQuery 滚动条自定义插件', url: 'www.cnkk.me'},
+		{name: 'Mr.K专注前端开发', url: 'www.cnkk.me'},
+		{name: 'Web前端开发 / 前端开发', url: 'www.cnkk.me'},
+		{name: 'Css3 / Html5 / CSS+Div', url: 'www.cnkk.me'},
+		{name: 'jquery / javascript / ajax / json', url: 'www.cnkk.me'}
+	];
+
+	$('.wrap ul').empty();
+
+	for (var i = 0; i < 5; i++) {
+
+		dataJSON.forEach(function(n){
+			$('.wrap ul').append(template('tp_testList', n));
+		})
+
+	}
+		
+
+		
+		
+		
+
+	</script>
+
+</body>
+</html>
